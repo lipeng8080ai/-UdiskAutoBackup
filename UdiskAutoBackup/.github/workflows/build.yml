@@ -40,7 +40,7 @@ jobs:
 
       # 步骤5：上传构建好的APK（构建成功后可在Actions页面下载）
       - name: 上传APK产物
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # 关键修复：升级到v4版本
         with:
           name: app-debug-apk # 下载包名
           path: UdiskAutoBackup/app/build/outputs/apk/debug/app-debug.apk # APK绝对路径
