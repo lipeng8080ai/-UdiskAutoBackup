@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">U盘自动备份</string>
-    <string name="notification_title">U盘自动备份</string>
-    <string name="notification_content">正在后台监控U盘设备</string>
-</resources>
