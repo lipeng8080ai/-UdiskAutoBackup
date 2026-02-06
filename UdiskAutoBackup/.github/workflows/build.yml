@@ -1,5 +1,9 @@
-name: Build APK
-
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: UdiskAutoBackupname: Build APK
 on:
   push:
     branches: [ main ]
