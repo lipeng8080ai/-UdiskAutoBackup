@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android' version '1.6.10' // 统一为1.6.10
 }
 
 android {
@@ -30,6 +31,16 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.core:core:1.12.0'
+    implementation 'androidx.core:core-ktx:1.12.0' // 替换为ktx版，适配Kotlin
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // 核心修复：强制统一Kotlin版本，消除重复依赖冲突
+    configurations.all {
+        resolutionStrategy {
+            // 强制所有模块使用1.6.10版本的Kotlin标准库，和插件版本匹配
+            force 'org.jetbrains.kotlin:kotlin-stdlib:1.6.10'
+            force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10'
+            force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10'
+        }
+    }
 }
