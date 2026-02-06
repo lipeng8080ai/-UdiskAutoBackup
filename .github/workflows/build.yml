@@ -18,11 +18,18 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: 授予Gradle执行权限
+      - name: 强制生成Gradle 8.2包装器
+        run: |
+          # 先删除可能存在的无效文件
+          rm -f ./gradle/wrapper/gradle-wrapper.jar
+          # 强制生成正确的wrapper
+          ./gradlew wrapper --gradle-version 8.2
+
+      - name: 授予执行权限
         run: chmod +x ./gradlew
 
       - name: 构建Debug APK
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug --stacktrace
 
       - name: 上传APK产物
         uses: actions/upload-artifact@v4
