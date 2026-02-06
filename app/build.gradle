@@ -28,11 +28,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.core:core-ktx:1.12.0' // 替换为ktx版，适配Kotlin
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    // 新增：解决documentfile等类找不到的问题
+    implementation 'androidx.documentfile:documentfile:1.0.1'
 
     // 核心修复：强制统一Kotlin版本，消除重复依赖冲突
     configurations.all {
@@ -41,6 +42,7 @@ dependencies {
             force 'org.jetbrains.kotlin:kotlin-stdlib:1.6.10'
             force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10'
             force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10'
+            
         }
     }
 }
