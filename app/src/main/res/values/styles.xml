@@ -1,5 +1,6 @@
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here -->
+    <!-- 这个主题名称要和AndroidManifest.xml里的一致 -->
+    <style name="Theme.AppCompat.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 这里可以留空，用系统默认样式即可 -->
     </style>
 </resources>
