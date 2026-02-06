@@ -16,16 +16,14 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
 
-      - name: 先给gradlew赋予执行权限
-        run: chmod +x ./gradlew
-
-      - name: 强制生成Gradle 8.2包装器
-        run: ./gradlew wrapper --gradle-version 8.2
+      - name: 直接安装Gradle 8.2（从官方镜像）
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.2
 
       - name: 构建Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
 
       - name: 上传APK产物
         uses: actions/upload-artifact@v4
